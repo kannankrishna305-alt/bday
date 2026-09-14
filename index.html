@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>my jithu birthaday ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- ================================
+     MUSIC
+================================ -->
+
+<audio id="birthdayMusic" loop>
+
+    <source
+        src="auido.mp3.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- ================================
+     PAGE 1 : SECRET CODE
+================================ -->
+
+<section
+    id="codePage"
+    class="page">
+
+    <div class="code-card">
+
+        <div class="lock">
+            🔐
+        </div>
+
+        <p class="small-text">
+            A LITTLE SURPRISE FOR YOU
+        </p>
+
+        <h1>
+            Happy Birthday
+        </h1>
+
+        <h2>
+            to my jithu ❤️
+        </h2>
+
+        <p class="instruction">
+            Enter the secret code to unlock
+            your surprise
+        </p>
+
+        <div class="code-inputs">
+
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+
+        </div>
+
+        <p id="wrongCode">
+
+            Wrong code.
+            Try again jithu ❤️
+
+        </p>
+
+        <p class="hint">
+            ♡ something only we know ♡
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PAGE 2 : WELCOME
+================================ -->
+
+<section
+    id="welcomePage"
+    class="page hidden">
+
+    <div class="welcome-content">
+
+        <div class="sparkle">
+            ✨
+        </div>
+
+        <p class="small-text">
+            THE WAIT IS OVER...
+        </p>
+
+        <h1>
+
+            Today is all about
+
+            <br>
+
+            <span>YOU</span> ❤️
+
+        </h1>
+
+        <p>
+            I made something special
+            just for you.
+        </p>
+
+        <button
+            class="main-btn"
+            onclick="goTo('balloonPage')">
+
+            Open Your Surprise
+
+            <span>→</span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PAGE 3 : BALLOONS
+================================ -->
+
+<section
+    id="balloonPage"
+    class="page hidden dark-page">
+
+    <div class="section-wrapper">
+
+        <p class="small-text">
+            MEMORIES
+        </p>
+
+        <h1>
+            Pop the balloons 🎈
+        </h1>
+
+        <p class="description">
+            Click each balloon
+            to reveal a memory.
+        </p>
+
+
+        <div class="balloon-area">
+
+
+            <div class="balloon-box">
+
+                <button
+                    class="balloon balloon1"
+                    onclick="openMemory(0, this)">
+
+                    ❤️
+
+                </button>
+
+                <div class="balloon-string"></div>
+
+            </div>
+
+
+            <div class="balloon-box">
+
+                <button
+                    class="balloon balloon2"
+                    onclick="openMemory(1, this)">
+
+                    ✨
+
+                </button>
+
+                <div class="balloon-string"></div>
+
+            </div>
+
+
+            <div class="balloon-box">
+
+                <button
+                    class="balloon balloon3"
+                    onclick="openMemory(2, this)">
+
+                    🌸
+
+                </button>
+
+                <div class="balloon-string"></div>
+
+            </div>
+
+
+            <div class="balloon-box">
+
+                <button
+                    class="balloon balloon4"
+                    onclick="openMemory(3, this)">
+
+                    💕
+
+                </button>
+
+                <div class="balloon-string"></div>
+
+            </div>
+
+
+            <div class="balloon-box">
+
+                <button
+                    class="balloon balloon5"
+                    onclick="openMemory(4, this)">
+
+                    ⭐
+
+                </button>
+
+                <div class="balloon-string"></div>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            id="balloonContinue"
+            class="main-btn light-btn continue-hidden"
+            onclick="goTo('galleryPage')">
+
+            Continue
+
+            <span>→</span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     MEMORY POPUP
+================================ -->
+
+<div
+    id="memoryPopup"
+    class="overlay hidden">
+
+    <div class="memory-popup">
+
+        <button
+            class="close"
+            onclick="closeMemory()">
+
+            ×
+
+        </button>
+
+        <div id="memoryIcon">
+            ❤️
+        </div>
+
+        <h2 id="memoryTitle">
+            Our Memory
+        </h2>
+
+        <p id="memoryText">
+            A beautiful memory ❤️
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================================
+     PAGE 4 : PHOTOS
+================================ -->
+
+<section
+    id="galleryPage"
+    class="page hidden">
+
+    <div class="section-wrapper">
+
+        <p class="small-text">
+            OUR MEMORIES
+        </p>
+
+        <h1>
+
+            Little moments,
+
+            <br>
+
+            big memories 📸
+
+        </h1>
+
+        <p class="description">
+
+            Some moments deserve
+            to be remembered forever.
+
+        </p>
+
+
+        <!-- PHOTO GALLERY -->
+
+        <div class="gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="photo2.jpg.jpeg"
+                    alt="Birthday Memory">
+
+                <p>
+                    Our first beautiful memory ❤️
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="photo1.jpg.jpeg"
+                    alt="Birthday Memory">
+
+                <p>
+                    One of my favourite moments ❤️
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="photo4.jpg.jpeg"
+                    alt="Birthday Memory">
+
+                <p>
+                    A moment I will never forget ✨
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO 4 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="photo3.jpg.jpeg"
+                    alt="Birthday Memory">
+
+                <p>
+                    Forever a special memory 💕
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="main-btn"
+            onclick="goTo('videoPage')">
+
+            Next Surprise
+
+            <span>→</span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PAGE 5 : VIDEO
+================================ -->
+
+<section
+    id="videoPage"
+    class="page hidden dark-page">
+
+    <div class="section-wrapper">
+
+        <p class="small-text">
+            A LITTLE VIDEO
+        </p>
+
+        <h1>
+            For you 🎬
+        </h1>
+
+        <p class="description">
+
+            Watch this little surprise
+            I made for you.
+
+        </p>
+
+
+        <div class="video-container">
+
+            <video
+                id="birthdayVideo"
+                controls
+                playsinline>
+
+                <source
+                    src="videoss.mp4"
+                    type="video/mp4">
+
+                Your browser does not support video.
+
+            </video>
+
+        </div>
+
+
+        <button
+            class="main-btn light-btn"
+            onclick="goTo('letterPage')">
+
+            Continue
+
+            <span>→</span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PAGE 6 : LETTERS
+================================ -->
+
+<section
+    id="letterPage"
+    class="page hidden">
+
+    <div class="section-wrapper">
+
+        <p class="small-text">
+            LETTERS
+        </p>
+
+        <h1>
+
+            A few words
+
+            <br>
+
+            from my heart 💌
+
+        </h1>
+
+        <p class="description">
+            Open each letter.
+        </p>
+
+
+        <div class="letters">
+
+
+            <button
+                class="letter-card"
+                onclick="openLetter(0)">
+
+                <div>
+                    💌
+                </div>
+
+                <span>
+                    Letter One
+                </span>
+
+            </button>
+
+
+            <button
+                class="letter-card"
+                onclick="openLetter(1)">
+
+                <div>
+                    💌
+                </div>
+
+                <span>
+                    Letter Two
+                </span>
+
+            </button>
+
+
+            <button
+                class="letter-card"
+                onclick="openLetter(2)">
+
+                <div>
+                    💌
+                </div>
+
+                <span>
+                    Letter Three
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+        <button
+            class="main-btn"
+            onclick="goTo('messagePage')">
+
+            Next
+
+            <span>→</span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     LETTER POPUP
+================================ -->
+
+<div
+    id="letterPopup"
+    class="overlay hidden">
+
+    <div class="letter-popup">
+
+        <button
+            class="close"
+            onclick="closeLetter()">
+
+            ×
+
+        </button>
+
+        <div class="letter-icon">
+            💌
+        </div>
+
+        <h2 id="letterTitle">
+            Letter
+        </h2>
+
+        <p id="letterText">
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================================
+     PAGE 7 : MESSAGES
+================================ -->
+
+<section
+    id="messagePage"
+    class="page hidden message-page">
+
+    <div class="section-wrapper">
+
+        <p class="small-text">
+            SPECIAL MESSAGES
+        </p>
+
+        <h1>
+
+            Things I want
+
+            <br>
+
+            you to know 💬
+
+        </h1>
+
+
+        <div class="message-list">
+
+            <div class="message-card">
+
+                <span>
+                    💕
+                </span>
+
+                <p>
+                    Thank you for being such
+                    a beautiful part of my life.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="main-btn"
+            onclick="goTo('cakePage')">
+
+            One Last Thing
+
+            <span>→</span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PAGE 8 : CAKE
+================================ -->
+
+<section
+    id="cakePage"
+    class="page hidden cake-page">
+
+    <div class="cake-content">
+
+        <p class="small-text">
+            MAKE A WISH
+        </p>
+
+        <h1>
+            It's your special day 🎂
+        </h1>
+
+
+        <!-- CAKE -->
+
+        <div class="cake">
+
+
+            <!-- CANDLE 1 -->
+
+            <div class="candle candle1">
+
+                <span class="flame">
+                    🔥
+                </span>
+
+            </div>
+
+
+            <!-- CANDLE 2 -->
+
+            <div class="candle candle2">
+
+                <span class="flame">
+                    🔥
+                </span>
+
+            </div>
+
+
+            <!-- CANDLE 3 -->
+
+            <div class="candle candle3">
+
+                <span class="flame">
+                    🔥
+                </span>
+
+            </div>
+
+
+            <!-- CAKE -->
+
+            <div class="cake-top"></div>
+
+            <div class="cake-middle"></div>
+
+            <div class="cake-bottom"></div>
+
+
+        </div>
+
+
+        <p
+            id="wishText"
+            class="wish-text">
+
+            Click the button to light
+            the candles ✨
+
+        </p>
+
+
+        <!-- =========================
+             MUSIC BUTTON
+             CAKE PAGE ONLY
+        ========================== -->
+
+        <button
+            id="musicBtn"
+            class="music-btn"
+            onclick="toggleMusic()">
+
+            🎵
+
+        </button>
+
+
+        <br><br>
+
+
+        <!-- LIGHT CANDLE BUTTON -->
+
+        <button
+            id="candleButton"
+            class="main-btn"
+            onclick="lightCandles()">
+
+            Light the candles 🕯️
+
+        </button>
+
+
+        <!-- CONTINUE BUTTON -->
+
+        <button
+            id="cakeContinue"
+            class="main-btn continue-hidden"
+            onclick="goTo('finalPage')">
+
+            Continue
+
+            <span>→</span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PAGE 9 : FINAL SURPRISE
+================================ -->
+
+<section
+    id="finalPage"
+    class="page hidden final-page">
+
+
+    <canvas id="confetti"></canvas>
+
+
+    <div class="final-content">
+
+
+        <div class="gift">
+            🎁
+        </div>
+
+
+        <p class="small-text">
+            YOUR FINAL SURPRISE CHUPPY
+        </p>
+
+
+        <h1>
+
+            Happy Birthday
+
+            <br>
+
+            <span>
+                My jithu ❤️
+            </span>
+
+        </h1>
+
+
+        <p class="final-message">
+
+            Today is your day,
+            but honestly...
+
+            every day becomes better
+            because you are in it.
+
+        </p>
+
+
+        <p class="final-message">
+
+            I hope this new year of your life
+            brings you endless smiles,
+            beautiful memories and everything
+            your heart wishes for.
+
+        </p>
+
+
+        <h2>
+            happyeeeeeeee ❤️
+        </h2>
+
+
+        <div class="final-hearts">
+            ❤️ ✨ 💕 ✨ ❤️
+        </div>
+
+
+        <!-- =========================
+             MUSIC BUTTON
+             FINAL PAGE
+        ========================== -->
+
+        <button
+            class="music-btn"
+            onclick="toggleMusic()">
+
+            🎵
+
+        </button>
+
+
+        <br><br>
+
+
+        <button
+            class="restart-btn"
+            onclick="restartWebsite()">
+
+            Replay Surprise ↻
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     JAVASCRIPT
+================================ -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

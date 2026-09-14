@@ -1,0 +1,1282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Cormorant Garamond", serif;
+
+    background: #f7eee8;
+
+    color: #5d2029;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   COMMON
+========================== */
+
+.page {
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 70px 20px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.small-text {
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+
+.description {
+    font-size: 21px;
+
+    margin-top: 15px;
+
+    opacity: .8;
+}
+
+
+h1 {
+    font-family: "Dancing Script", cursive;
+
+    font-size: 65px;
+
+    line-height: 1.1;
+}
+
+
+.main-btn {
+    border: none;
+
+    background: #702630;
+
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 40px;
+
+    margin-top: 40px;
+
+    font-family: inherit;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.main-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.2);
+}
+
+
+.main-btn span {
+    margin-left: 10px;
+}
+
+
+.light-btn {
+    background: #f4e8df;
+
+    color: #6e252e;
+}
+
+
+/* ==========================
+   MUSIC
+========================== */
+
+.music-btn {
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    z-index: 5000;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.15);
+}
+
+
+/* ==========================
+   SECRET CODE
+========================== */
+
+#codePage {
+    background:
+        radial-gradient(
+            circle at top,
+            #fff8f4,
+            #f2e0d7
+        );
+}
+
+
+.code-card {
+    width: 100%;
+
+    max-width: 550px;
+
+    padding: 55px 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.5);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 60px rgba(80,30,30,.12);
+
+    animation: appear 1s ease;
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+.lock {
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+
+.code-card h1 {
+    font-size: 70px;
+}
+
+
+.code-card h2 {
+    font-family: "Dancing Script", cursive;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    margin-top: 10px;
+}
+
+
+.instruction {
+    font-size: 18px;
+
+    margin-top: 35px;
+}
+
+
+/* =================================
+   SECRET CODE - RESPONSIVE
+================================= */
+
+.code-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 420px;
+    margin: 25px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.code-inputs input {
+    width: 42px;
+    height: 52px;
+
+    flex: 1;
+    max-width: 42px;
+
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: 600;
+
+    border: 1px solid #d8a0aa;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-sizing: border-box;
+}
+
+
+/* When input is selected */
+
+.code-inputs input:focus {
+    border-color: #a85b6a;
+
+    box-shadow:
+        0 0 0 3px rgba(187, 115, 13, 0.15);
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 500px) {
+
+    .code-inputs {
+        gap: 5px;
+        padding: 0 8px;
+    }
+
+    .code-inputs input {
+        width: 36px;
+        height: 46px;
+
+        max-width: 36px;
+
+        font-size: 18px;
+    }
+
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 380px) {
+
+    .code-inputs {
+        gap: 3px;
+        padding: 0 5px;
+    }
+
+    .code-inputs input {
+        width: 32px;
+        height: 42px;
+
+        max-width: 32px;
+
+        font-size: 16px;
+    }
+
+}
+
+
+#wrongCode {
+    display: none;
+
+    margin-top: 15px;
+
+    color: #b3273b;
+}
+
+
+.hint {
+    margin-top: 40px;
+
+    opacity: .7;
+
+    font-style: italic;
+}
+
+
+/* ==========================
+   WELCOME
+========================== */
+
+#welcomePage {
+    background:
+        linear-gradient(
+            135deg,
+            #f9eee8,
+            #ead4ca
+        );
+}
+
+
+.welcome-content {
+    text-align: center;
+
+    max-width: 750px;
+}
+
+
+.sparkle {
+    font-size: 60px;
+
+    animation: sparkle 2s infinite;
+}
+
+
+@keyframes sparkle {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+
+.welcome-content h1 {
+    margin-top: 15px;
+}
+
+
+.welcome-content h1 span {
+    color: #9b3947;
+}
+
+
+.welcome-content > p:last-of-type {
+    font-size: 23px;
+
+    margin-top: 25px;
+}
+
+
+/* ==========================
+   DARK PAGE
+========================== */
+
+.dark-page {
+    background:
+        radial-gradient(
+            circle at top,
+            #8d3643,
+            #42141c
+        );
+
+    color: white;
+}
+
+
+.section-wrapper {
+    width: 100%;
+
+    max-width: 1000px;
+
+    text-align: center;
+}
+
+
+/* ==========================
+   BALLOONS
+========================== */
+
+.balloon-area {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-top: 90px;
+}
+
+
+.balloon-box {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.balloon {
+    width: 115px;
+
+    height: 145px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    color: white;
+
+    box-shadow:
+        inset -15px -15px 20px rgba(0,0,0,.18),
+        inset 10px 10px 15px rgba(255,255,255,.25);
+
+    animation:
+        balloonFloat
+        3s infinite ease-in-out;
+
+    transition:
+        transform .5s,
+        opacity .5s;
+}
+
+
+.balloon:hover {
+    transform: scale(1.1);
+}
+
+
+.balloon1 {
+    background: #cf7080;
+}
+
+
+.balloon2 {
+    background: #b95a6b;
+
+    animation-delay: .4s;
+}
+
+
+.balloon3 {
+    background: #9c5262;
+
+    animation-delay: .8s;
+}
+
+
+.balloon4 {
+    background: #d27988;
+
+    animation-delay: 1.2s;
+}
+
+
+.balloon5 {
+    background: #ad4557;
+
+    animation-delay: 1.6s;
+}
+
+
+@keyframes balloonFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+
+/* BALLOON POP */
+
+.balloon.popped {
+    animation: balloonPop .5s forwards;
+}
+
+
+@keyframes balloonPop {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    40% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+.balloon-string {
+    height: 90px;
+
+    border-left: 2px dashed #e8d1cc;
+
+    transition: opacity .5s;
+}
+
+
+.balloon-box.popped .balloon-string {
+    opacity: 0;
+}
+
+
+.continue-hidden {
+    display: none;
+}
+
+
+/* ==========================
+   POPUP
+========================== */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.7);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 3000;
+
+    padding: 20px;
+}
+
+
+.memory-popup,
+.letter-popup {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 35px;
+
+    background: #f9eee8;
+
+    color: #5d2029;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    animation: popup .4s ease;
+}
+
+
+@keyframes popup {
+
+    from {
+        opacity: 0;
+
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+.close {
+    position: absolute;
+
+    right: 15px;
+
+    top: 12px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+#memoryIcon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+
+.memory-popup h2,
+.letter-popup h2 {
+    font-family: "Dancing Script", cursive;
+
+    font-size: 40px;
+}
+
+
+.memory-popup p,
+.letter-popup p {
+    font-size: 22px;
+
+    line-height: 1.6;
+
+    margin-top: 15px;
+}
+
+
+/* ==========================
+   GALLERY
+========================== */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    margin-top: 60px;
+}
+
+
+.photo-card {
+    background: white;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.12);
+
+    transition: .3s;
+}
+
+
+.photo-card:hover {
+    transform:
+        translateY(-10px)
+        rotate(2deg);
+}
+
+
+.photo-card img {
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.photo-card p {
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 21px;
+
+    padding: 15px 5px 8px;
+}
+
+
+/* ==========================
+   VIDEO
+========================== */
+
+.video-container {
+    margin: 50px auto 0;
+
+    max-width: 650px;
+}
+
+
+.video-container video {
+    width: 100%;
+
+    max-height: 500px;
+
+    display: block;
+
+    border-radius: 20px;
+
+    background: black;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.3);
+}
+
+
+/* ==========================
+   LETTERS
+========================== */
+
+.letters {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    margin-top: 70px;
+}
+
+
+.letter-card {
+    width: 220px;
+
+    height: 150px;
+
+    border: 1px solid #d4beb5;
+
+    border-radius: 15px;
+
+    background: #f9eee8;
+
+    color: #5d2029;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.1);
+}
+
+
+.letter-card:hover {
+    transform: translateY(-10px);
+
+    background: #fff8f4;
+}
+
+
+.letter-card div {
+    font-size: 45px;
+}
+
+
+.letter-card span {
+    display: block;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 23px;
+
+    margin-top: 10px;
+}
+
+
+.letter-icon {
+    font-size: 60px;
+}
+
+
+/* ==========================
+   MESSAGES
+========================== */
+
+.message-page {
+    background: #f1dfd7;
+}
+
+
+.message-list {
+    max-width: 700px;
+
+    margin: 55px auto 0;
+
+    display: grid;
+
+    gap: 20px;
+}
+
+
+.message-card {
+    background: rgba(255,255,255,.6);
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    text-align: left;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.06);
+
+    transition: .3s;
+}
+
+
+.message-card:hover {
+    transform: translateX(8px);
+}
+
+
+.message-card span {
+    font-size: 30px;
+}
+
+
+.message-card p {
+    font-size: 21px;
+}
+
+
+/* ==========================
+   CAKE
+========================== */
+
+.cake-page {
+    background:
+        linear-gradient(
+            180deg,
+            #f9eee8,
+            #ead0c5
+        );
+}
+
+
+.cake-content {
+    text-align: center;
+}
+
+
+.cake {
+    position: relative;
+
+    width: 320px;
+
+    height: 260px;
+
+    margin: 60px auto 20px;
+}
+
+
+/* CAKE LAYERS */
+
+.cake-bottom,
+.cake-middle,
+.cake-top {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 15px;
+}
+
+
+.cake-bottom {
+    bottom: 0;
+
+    width: 320px;
+
+    height: 80px;
+
+    background: #9c3948;
+}
+
+
+.cake-middle {
+    bottom: 65px;
+
+    width: 280px;
+
+    height: 70px;
+
+    background: #c35b69;
+}
+
+
+.cake-top {
+    bottom: 120px;
+
+    width: 240px;
+
+    height: 65px;
+
+    background: #e58a97;
+}
+
+
+/* CANDLES */
+
+.candle {
+    position: absolute;
+
+    bottom: 175px;
+
+    width: 15px;
+
+    height: 60px;
+
+    background: white;
+
+    z-index: 5;
+
+    border-radius: 5px;
+}
+
+
+.candle1 {
+    left: 125px;
+}
+
+
+.candle2 {
+    left: 155px;
+}
+
+
+.candle3 {
+    left: 185px;
+}
+
+
+/* FLAME */
+
+.flame {
+    position: absolute;
+
+    top: -32px;
+
+    left: -5px;
+
+    font-size: 25px;
+
+    opacity: 0;
+
+    transform: scale(.5);
+
+    transition: .5s;
+}
+
+
+.candle.lit .flame {
+    opacity: 1;
+
+    transform: scale(1);
+
+    animation:
+        flameAnimation
+        .8s infinite;
+}
+
+
+@keyframes flameAnimation {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+.wish-text {
+    font-size: 24px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+}
+
+
+/* ==========================
+   FINAL PAGE
+========================== */
+
+.final-page {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #8d3643,
+            #3b1118
+        );
+
+    color: white;
+
+    text-align: center;
+}
+
+
+.final-content {
+    max-width: 750px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.gift {
+    font-size: 90px;
+
+    animation:
+        giftAnimation
+        2s infinite;
+}
+
+
+@keyframes giftAnimation {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+.final-content h1 {
+    margin-top: 25px;
+
+    font-size: 70px;
+}
+
+
+.final-content h1 span {
+    font-size: 48px;
+}
+
+
+.final-message {
+    font-size: 22px;
+
+    line-height: 1.6;
+
+    margin-top: 25px;
+}
+
+
+.final-content h2 {
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 38px;
+
+    margin-top: 30px;
+}
+
+
+.final-hearts {
+    font-size: 30px;
+
+    margin-top: 30px;
+}
+
+
+.restart-btn {
+    margin-top: 35px;
+
+    padding: 12px 25px;
+
+    border-radius: 30px;
+
+    border: 1px solid white;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 17px;
+}
+
+
+/* ==========================
+   CONFETTI
+========================== */
+
+#confetti {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 48px;
+    }
+
+
+    .code-card h1 {
+        font-size: 50px;
+    }
+
+
+    .code-inputs {
+        gap: 6px;
+    }
+
+
+    .code-inputs input {
+        width: 43px;
+
+        height: 55px;
+    }
+
+
+    .balloon-area {
+        gap: 15px;
+
+        margin-top: 50px;
+    }
+
+
+    .balloon {
+        width: 85px;
+
+        height: 110px;
+    }
+
+
+    .balloon-string {
+        height: 60px;
+    }
+
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+
+    .photo-card img {
+        height: 180px;
+    }
+
+
+    .letters {
+        gap: 15px;
+    }
+
+
+    .letter-card {
+        width: 160px;
+
+        height: 130px;
+    }
+
+
+    .final-content h1 {
+        font-size: 52px;
+    }
+
+
+    .final-content h1 span {
+        font-size: 35px;
+    }
+
+
+    .final-message {
+        font-size: 19px;
+    }
+
+
+    .cake {
+        transform: scale(.8);
+    }
+
+}
